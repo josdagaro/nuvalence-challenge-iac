@@ -30,7 +30,7 @@ module "iam_policy_put_s3_objects" {
   description = "My nuva S3 PUT policy"
 
   policy = templatefile("${path.module}/s3-put-object-policy.json", {
-    s3_bucket = try("${aws_s3_bucket.this[0].arn}/*", "")
+    s3_bucket = format("%q", try("${aws_s3_bucket.this[0].arn}/*", ""))
   })
 }
 
