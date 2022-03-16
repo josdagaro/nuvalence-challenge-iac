@@ -25,7 +25,38 @@
           }
         ],
         "x-amazon-apigateway-integration": {
-          "uri": "${lambda_uri}",
+          "uri": "${lambda_put_nuva_data_uri}",
+          "httpMethod": "POST",
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "passthroughBehavior": "when_no_match",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "uri": "${lambda_get_nuva_data_uri}",
           "httpMethod": "POST",
           "responses": {
             "default": {

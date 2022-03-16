@@ -2,8 +2,9 @@ resource "aws_api_gateway_rest_api" "this" {
   count    = var.create ? 1 : 0
   provider = aws.ohio
 
-  body = templatefile("${path.module}/OAS.json", {
-    lambda_uri = module.lambda_function.lambda_function_invoke_arn
+  body = templatefile("${path.module}/oas.json", {
+    lambda_put_nuva_data_uri = module.lambda_function_put_nuva_data.lambda_function_invoke_arn
+    lambda_get_nuva_data_uri = module.lambda_function_get_nuva_data.lambda_function_invoke_arn
   })
 
   name = "${var.env}-nuva-challenge"
