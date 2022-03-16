@@ -17,8 +17,7 @@ module "lambda_function_put_nuva_data" {
   vpc_subnet_ids                    = module.vpc.intra_subnets
   vpc_security_group_ids            = [module.vpc.default_security_group_id]
   cloudwatch_logs_retention_in_days = 7
-
-  source_path = "${path.module}/src"
+  source_path                       = "${path.module}/src"
 
   tags = {
     Env = var.env
