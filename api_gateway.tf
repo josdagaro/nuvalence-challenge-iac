@@ -127,6 +127,6 @@ resource "aws_wafregional_web_acl" "waf_acl" {
 resource "aws_wafregional_web_acl_association" "this" {
   count        = var.create ? 1 : 0
   provider     = aws.ohio
-  resource_arn = try(aws_api_gateway_stage.this.*.arn, "")
-  web_acl_id   = try(aws_wafregional_web_acl.waf_acl.*.id, "")
+  resource_arn = try(aws_api_gateway_stage.this[0].arn, "")
+  web_acl_id   = try(aws_wafregional_web_acl.waf_acl[0].id, "")
 }

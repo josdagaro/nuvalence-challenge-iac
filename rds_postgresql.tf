@@ -37,7 +37,6 @@ module "db" {
   create_db_instance                    = var.create
   create_db_option_group                = var.create
   create_db_parameter_group             = var.create
-  create_db_subnet_group                = var.create
   identifier                            = "${var.env}-nuva-db"
   engine                                = "postgres"
   engine_version                        = "10.20"
@@ -51,7 +50,9 @@ module "db" {
   password                              = var.db_secret_pass
   port                                  = 5432
   multi_az                              = true
-  db_subnet_group_name                  = module.vpc.database_subnet_group
+  create_db_subnet_group                = var.create
+  db_subnet_group_name                  = "${var.env}-nuva-db"
+  subnet_ids                            = module.vpc.intra_subnets
   vpc_security_group_ids                = [module.security_group_db.security_group_id]
   maintenance_window                    = "Mon:00:00-Mon:03:00"
   backup_window                         = "03:00-06:00"
