@@ -42,7 +42,7 @@ module "db" {
   engine_version                        = "10.20"
   family                                = "postgres10"
   major_engine_version                  = "10"
-  instance_class                        = "db.t4g.large"
+  instance_class                        = "db.t3.large"
   allocated_storage                     = 20
   max_allocated_storage                 = 100
   db_name                               = "nuva"
