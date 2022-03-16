@@ -18,6 +18,7 @@ module "lambda_function_get_nuva_data" {
   vpc_security_group_ids            = [module.vpc.default_security_group_id]
   cloudwatch_logs_retention_in_days = 7
   source_path                       = "${path.module}/lambda-functions-src/get_data.py"
+  publish                           = true
 
   tags = {
     Env = var.env
