@@ -48,6 +48,7 @@ module "db" {
   max_allocated_storage                 = 100
   db_name                               = "nuva"
   username                              = var.db_secret_user
+  password                              = var.db_secret_pass
   port                                  = 5432
   multi_az                              = true
   db_subnet_group_name                  = module.vpc.database_subnet_group
