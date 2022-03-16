@@ -1,6 +1,10 @@
 module "lambda_function" {
   source = "terraform-aws-modules/lambda/aws"
 
+  providers = {
+    aws = aws.ohio
+  }
+
   function_name = "put-nuva-data"
   description   = "My awesome lambda function for env ${var.env}"
   handler       = "index.lambda_handler"

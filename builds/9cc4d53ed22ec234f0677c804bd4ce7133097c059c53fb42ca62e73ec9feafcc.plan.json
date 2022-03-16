@@ -1,1 +1,0 @@
-{"filename": "builds/9cc4d53ed22ec234f0677c804bd4ce7133097c059c53fb42ca62e73ec9feafcc.zip", "runtime": "python3.6", "artifacts_dir": "builds", "build_plan": [["zip", "./src", null]]}
