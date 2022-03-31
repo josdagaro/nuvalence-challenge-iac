@@ -96,7 +96,6 @@ jobs:
           quiet: false
           soft_fail: false
           framework: terraform
-          output_format: json
 
   tfsuit:
     runs-on: ubuntu-latest
