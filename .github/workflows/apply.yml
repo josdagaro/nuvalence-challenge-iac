@@ -6,8 +6,6 @@ on:
       - main
 
 env:
-  tf_bucket_name: tf-state-nuva
-  tf_state_file_name: infra.tfstate
   tf_version: 1.1.5
 
 jobs:
@@ -18,8 +16,8 @@ jobs:
       AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      TF_BUCKET_NAME: ${{ env.tf_bucket_name }}
-      TF_STATE_FILE_NAME: ${{ env.tf_state_file_name }}
+      TF_BUCKET_NAME: tf-state-nuva
+      TF_STATE_FILE_NAME: infra.tfstate
     steps:
       - uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v1
